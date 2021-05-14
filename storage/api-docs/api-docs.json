@@ -1,0 +1,250 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/v1/document/student/list": {
+            "get": {
+                "tags": [
+                    "Student"
+                ],
+                "summary": "Get list of Student information",
+                "description": "Returns Student data",
+                "responses": {
+                    "200": {
+                        "description": "Successfully."
+                    },
+                    "404": {
+                        "description": "Record Not found."
+                    },
+                    "400": {
+                        "description": "Bad Request."
+                    },
+                    "500": {
+                        "description": "Server Error."
+                    }
+                }
+            }
+        },
+        "/api/v1/document/student/show/4": {
+            "get": {
+                "tags": [
+                    "Student"
+                ],
+                "summary": "Get list of Student by id",
+                "description": "Returns Student data",
+                "responses": {
+                    "200": {
+                        "description": "Successfully."
+                    },
+                    "404": {
+                        "description": "Record Not found."
+                    },
+                    "400": {
+                        "description": "Bad Request."
+                    },
+                    "500": {
+                        "description": "Server Error."
+                    }
+                }
+            }
+        },
+        "/api/v1/document/student/create": {
+            "post": {
+                "tags": [
+                    "Student"
+                ],
+                "summary": "POST Create of Student information",
+                "description": "Create of Student",
+                "requestBody": {
+                    "description": "name,contact_no and address",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "contact_no",
+                                    "address"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "contact_no": {
+                                        "type": "integer"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully."
+                    },
+                    "404": {
+                        "description": "Record Not found."
+                    },
+                    "400": {
+                        "description": "Bad Request."
+                    },
+                    "500": {
+                        "description": "Server Error."
+                    }
+                }
+            }
+        },
+        "/api/v1/document/student/update/4": {
+            "put": {
+                "tags": [
+                    "Student"
+                ],
+                "summary": "Update Student information",
+                "description": "Returns Student data",
+                "requestBody": {
+                    "description": "name,contact_no and address",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "contact_no",
+                                    "address"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "contact_no": {
+                                        "type": "integer"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully."
+                    },
+                    "404": {
+                        "description": "Record Not found."
+                    },
+                    "400": {
+                        "description": "Bad Request."
+                    },
+                    "500": {
+                        "description": "Server Error."
+                    }
+                }
+            }
+        },
+        "/api/v1/document/student/delete/5": {
+            "delete": {
+                "tags": [
+                    "Student"
+                ],
+                "summary": "Delete Student information",
+                "description": "Returns Student data",
+                "responses": {
+                    "200": {
+                        "description": "Successfully."
+                    },
+                    "404": {
+                        "description": "Record Not found."
+                    },
+                    "400": {
+                        "description": "Bad Request."
+                    },
+                    "500": {
+                        "description": "Server Error."
+                    }
+                }
+            }
+        },
+        "/api/v1/document/subject/list": {
+            "get": {
+                "tags": [
+                    "Subject"
+                ],
+                "summary": "Get list of Subject information",
+                "description": "Returns Subject data",
+                "responses": {
+                    "200": {
+                        "description": "Successfully."
+                    },
+                    "404": {
+                        "description": "Record Not found."
+                    },
+                    "400": {
+                        "description": "Bad Request."
+                    },
+                    "500": {
+                        "description": "Server Error."
+                    }
+                }
+            }
+        },
+        "/api/v1/document/subject/create": {
+            "post": {
+                "tags": [
+                    "Subject"
+                ],
+                "summary": "POST Create of Subject information",
+                "description": "Create of Subject",
+                "requestBody": {
+                    "description": "subject_code and sub_name",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "subject_code",
+                                    "sub_name"
+                                ],
+                                "properties": {
+                                    "subject_code": {
+                                        "type": "string"
+                                    },
+                                    "sub_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully."
+                    },
+                    "404": {
+                        "description": "Record Not found."
+                    },
+                    "400": {
+                        "description": "Bad Request."
+                    },
+                    "500": {
+                        "description": "Server Error."
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

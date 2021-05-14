@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * @SWG\Swagger(
+ *   basePath="/api",
+ *   @SWG\Info(
+ *     title="Core API",
+ *     version="1.0.0"
+ *   )
+ * )
+ */
 
 namespace App\Http\Controllers;
 
@@ -14,7 +23,27 @@ use Validator;
 class StudentController extends Controller
 {
 
-    //get list of student
+
+    /**
+     * @OA\Get(
+     *     path="/api/v1/document/student/list",
+     *     tags={"Student"},
+     *      summary="Get list of Student information",
+     *      description="Returns Student data",
+     *     @OA\Response(response="200", description="Successfully."),
+     *     @OA\Response(response="404", description="Record Not found."),
+     *     @OA\Response(response="400", description="Bad Request."),
+     *     @OA\Response(response="500", description="Server Error.")
+     * )
+     */
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * get list of student
+     */
+
     public function list(Request $request)
     {
         try {
@@ -32,8 +61,27 @@ class StudentController extends Controller
         }
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/document/student/show/4",
+     *     tags={"Student"},
+     *      summary="Get list of Student by id",
+     *      description="Returns Student data",
+     *
+     *     @OA\Response(response="200", description="Successfully."),
+     *     @OA\Response(response="404", description="Record Not found."),
+     *     @OA\Response(response="400", description="Bad Request."),
+     *     @OA\Response(response="500", description="Server Error.")
+     * )
+     */
 
-    //get student by Id
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * get list of student by id
+     */
+
     public function show($id) {
         if (Student::where('id', $id)->exists()) {
             $student = Student::where('id', $id)->get();
@@ -49,7 +97,39 @@ class StudentController extends Controller
         }
     }
 
-    //create a new student
+    /**
+     * @OA\Post(
+     *     path="/api/v1/document/student/create",
+     *     tags={"Student"},
+     *     summary="POST Create of Student information",
+     *     description="Create of Student",
+     *
+     *    @OA\RequestBody(
+     *    required=true,
+     *    description="name,contact_no and address",
+     *    @OA\JsonContent(
+     *       required={"name","contact_no","address"},
+     *       @OA\Property(property="name", type="string"),
+     *       @OA\Property(property="contact_no", type="integer"),
+     *       @OA\Property(property="address", type="string")
+     *    ),
+     * ),
+     *     @OA\Response(
+     *     response="200",
+     *     description="Successfully."),
+     *
+     *     @OA\Response(response="404", description="Record Not found."),
+     *     @OA\Response(response="400", description="Bad Request."),
+     *     @OA\Response(response="500", description="Server Error.")
+     * )
+     */
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * create a new student
+     */
+
     public function create(Request $request){
 
         $valid = Validator::make($request->all(),[
@@ -95,7 +175,38 @@ class StudentController extends Controller
 
     }
 
-    //update student by id
+    /**
+     * @OA\Put(
+     *      path="/api/v1/document/student/update/4",
+     *      tags={"Student"},
+     *      summary="Update Student information",
+     *      description="Returns Student data",
+     *
+     *     @OA\RequestBody(
+     *    required=true,
+     *    description="name,contact_no and address",
+     *    @OA\JsonContent(
+     *       required={"name","contact_no","address"},
+     *       @OA\Property(property="name", type="string"),
+     *       @OA\Property(property="contact_no", type="integer"),
+     *       @OA\Property(property="address", type="string")
+     *    ),
+     * ),
+     *
+     *     @OA\Response(response="200", description="Successfully."),
+     *     @OA\Response(response="404", description="Record Not found."),
+     *     @OA\Response(response="400", description="Bad Request."),
+     *     @OA\Response(response="500", description="Server Error.")
+     * )
+     */
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * update student by id
+     */
+
     public function update(Request $request, $id) {
 
         $valid = Validator::make($request->all(),[
@@ -136,7 +247,27 @@ class StudentController extends Controller
         }
     }
 
-    //delete student by id
+    /**
+     * @OA\Delete(
+     *     path="/api/v1/document/student/delete/5",
+     *     tags={"Student"},
+     *      summary="Delete Student information",
+     *      description="Returns Student data",
+     *
+     *     @OA\Response(response="200", description="Successfully."),
+     *     @OA\Response(response="404", description="Record Not found."),
+     *     @OA\Response(response="400", description="Bad Request."),
+     *     @OA\Response(response="500", description="Server Error.")
+     * )
+     */
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * delete student by id
+     */
+
     public function delete($id) {
         if(Student::where('id', $id)->exists()) {
             $branch = Student::find($id);

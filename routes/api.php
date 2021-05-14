@@ -28,6 +28,10 @@ Route::group(['middleware' => ['api']], function () {
             Route::put('/student/update/{id}', 'StudentController@update')->name('student.update');
             Route::delete('/student/delete/{id}', 'StudentController@delete')->name('student.delete');
 
+
+            Route::get('/subject/list', 'SubjectController@list')->name('subject.list');
+            Route::post('/subject/create', 'SubjectController@create')->name('subject.create');
+
         });
 
     });
